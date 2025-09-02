@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@theme {
+  --font-logo: "Asimovian", sans-serif;
+}
+
+@layer base {
+  html {
+    @apply snap-y snap-mandatory scroll-smooth;
+  }
+}
