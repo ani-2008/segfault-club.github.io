@@ -46,7 +46,7 @@ const App: Component = () => (
           <li>
             <User
               username="Cat"
-              avatarUrl="https://cdn.discordapp.com/avatars/815189874478546954/e9cb32f05f9ed4b45dfe94359033629e.png?size=1024"
+              avatarUrl="https://cdn.discordapp.com/avatars/815189874478546954/20b68ef860e3680fbd195edf5d1946f6.png?size=1024"
             />
           </li>
           <li>
