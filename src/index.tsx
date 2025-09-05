@@ -45,8 +45,8 @@ const App: Component = () => (
         <ul class="mx-auto my-10 grid max-w-3xl grid-cols-2 gap-5 max-md:grid-cols-1">
           <li>
             <User
-              username="Cat"
-              avatarUrl="https://cdn.discordapp.com/avatars/815189874478546954/20b68ef860e3680fbd195edf5d1946f6.png?size=1024"
+              username="Thatmagicalcat"
+              avatarUrl="https://cdn.discordapp.com/avatars/815189874478546954/fba107a0a4978c1e11063386102ba7ff.png?size=1024"
             />
           </li>
           <li>
