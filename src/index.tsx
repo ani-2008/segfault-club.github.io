@@ -14,7 +14,7 @@ const App: Component = () => (
     />
     <div class="fixed inset-0 z-0 bg-gradient-to-b from-slate-950/40 to-slate-950" />
 
-    <section class="relative z-10 flex h-[80vh] snap-start items-center px-[8%] text-white">
+    <section class="relative z-10 flex h-[90vh] snap-start items-center px-[8%] text-white">
       <main class="space-y-7">
         <h1 class="font-logo text-7xl text-violet-50">
           Seg
@@ -39,8 +39,8 @@ const App: Component = () => (
       </main>
     </section>
 
-    <section class="relative z-10 flex h-screen w-full snap-start items-center justify-center">
-      <article class="mx-4 h-[85vh] w-[90vw] overflow-y-scroll rounded-xl bg-slate-800/60 p-4 text-white backdrop-blur-sm [scrollbar-width:none]">
+    <section class="relative z-10 h-screen w-full snap-start">
+      <article class="h-screen w-full overflow-y-scroll bg-slate-800/60 p-4 text-white backdrop-blur-sm [scrollbar-width:none]">
         <h2 class="m-4 text-center text-4xl text-slate-300">Our Members</h2>
         <ul class="mx-auto my-10 grid max-w-3xl grid-cols-2 gap-5 max-md:grid-cols-1">
           <li>
