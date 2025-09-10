@@ -39,8 +39,8 @@ const App: Component = () => (
       </main>
     </section>
 
-    <section class="relative z-10 flex h-screen w-screen snap-start items-center justify-center">
-      <article class="mx-4 h-[85vh] w-[90vw] rounded-xl bg-slate-800/60 p-4 text-white backdrop-blur-sm">
+    <section class="relative z-10 flex h-screen w-full snap-start items-center justify-center">
+      <article class="mx-4 h-[85vh] w-[90vw] overflow-y-scroll rounded-xl bg-slate-800/60 p-4 text-white backdrop-blur-sm [scrollbar-width:none]">
         <h2 class="m-4 text-center text-4xl text-slate-300">Our Members</h2>
         <ul class="mx-auto my-10 grid max-w-3xl grid-cols-2 gap-5 max-md:grid-cols-1">
           <li>
