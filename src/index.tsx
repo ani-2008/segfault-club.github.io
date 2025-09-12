@@ -9,7 +9,7 @@ import Members from "./sections/Members";
 const App = () => (
   <>
     <Background src="/assets/Linux-user-Room.webp" />
-    <GithubRibbon />
+    <GithubRibbon repo="Segfault-Club/segfault-club.github.io" />
     <Main className="h-[80vh]" />
     <Members />
   </>
