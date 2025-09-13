@@ -1,17 +1,19 @@
 import { createResource } from "solid-js";
 
-export default function GithubRibbon() {
+interface GithubRibbonProps {
+  repo: `${string}/${string}`;
+}
+
+export default function GithubRibbon(props: GithubRibbonProps) {
   const [stars] = createResource(async () => {
-    const res = await fetch(
-      "https://api.github.com/repos/Segfault-Club/segfault-club.github.io",
-    );
+    const res = await fetch(`https://api.github.com/repos/${props.repo}`);
     const data = await res.json();
     return data.stargazers_count;
   });
 
   return (
     <a
-      href="https://github.com/Segfault-Club/segfault-club.github.io"
+      href={`https://github.com/${props.repo}`}
       target="_blank"
       class="group absolute top-0 right-0"
       aria-label="View source on GitHub"
