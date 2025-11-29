@@ -6,7 +6,11 @@ interface UserProps {
 
 export default function User(props: UserProps) {
   return (
-    <a href = {props.githubUrl} target="_blank" class="flex items-center space-x-4 rounded p-5 text-2xl transition hover:bg-slate-600">
+    <a
+      href={props.githubUrl}
+      target="_blank"
+      class="flex items-center space-x-4 rounded p-5 text-2xl transition hover:bg-slate-600"
+    >
       <img
         src={props.avatarUrl}
         alt="Discord Profile Picture"
