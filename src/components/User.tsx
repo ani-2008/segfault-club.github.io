@@ -3,6 +3,7 @@ interface UserProps {
   avatarUrl: string;
   githubUrl: string;
 }
+
 export default function User(props: UserProps) {
   return (
     <a
@@ -13,7 +14,7 @@ export default function User(props: UserProps) {
       <img
         src={props.avatarUrl}
         alt="Discord Profile Picture"
-        class="aspect-square w-full rounded-full shadow-md shadow-black transition duration-100 group-hover:-rotate-5"
+        class="aspect-square w-full rounded-full shadow-lg shadow-black/50 group-hover:shadow-slate-200/50 transition duration-100 group-hover:-rotate-5"
       />
       <span class="font-mono text-base text-slate-200 group-hover:underline lg:text-lg">
         {props.username}
