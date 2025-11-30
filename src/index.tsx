@@ -1,19 +1,29 @@
 import { render } from "solid-js/web";
+import { HashRouter, Route, RouteSectionProps } from "@solidjs/router";
 import "./index.css";
+
+import index from "./routes/index";
+const activies = lazy(() => import("./routes/activities"));
 
 import Background from "./components/Background";
 import GithubRibbon from "./components/GithubRibbon";
-import Main from "./sections/Main";
-import Members from "./sections/Members";
+import { lazy } from "solid-js";
 
-const App = () => (
+const App = (props: RouteSectionProps) => (
   <>
     <Background src="/assets/Linux-user-Room.webp" />
     <GithubRibbon repo="Segfault-Club/segfault-club.github.io" />
-    <Main className="h-[80vh]" />
-    <Members />
+    {props.children}
   </>
 );
 
 const root = document.getElementById("root");
-render(() => <App />, root!);
+render(
+  () => (
+    <HashRouter root={App}>
+      <Route path="/" component={index} />
+      <Route path="/activities" component={activies} />
+    </HashRouter>
+  ),
+  root!,
+);
