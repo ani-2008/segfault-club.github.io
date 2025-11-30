@@ -69,13 +69,6 @@ export default function index() {
           </li>
           <li>
             <User
-              username="ItsCoral"
-              avatarUrl="https://avatars.githubusercontent.com/u/200485543"
-              githubUrl="https://github.com/ItsCoral0301"
-            />
-          </li>
-          <li>
-            <User
               username="Diego Evaristo"
               avatarUrl="https://avatars.githubusercontent.com/u/186722487"
               githubUrl="https://github.com/foo8664"
