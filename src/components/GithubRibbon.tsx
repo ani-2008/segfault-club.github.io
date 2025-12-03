@@ -15,7 +15,7 @@ export default function GithubRibbon(props: GithubRibbonProps) {
     <a
       href={`https://github.com/${props.repo}`}
       target="_blank"
-      class="group absolute top-0 right-0"
+      class="group absolute top-0 right-0 z-50"
       aria-label="View source on GitHub"
     >
       <div class="absolute top-1/2 -left-6 flex scale-0 items-center gap-1 rounded bg-black p-1 text-white transition group-hover:scale-100">

@@ -3,7 +3,7 @@ import { HashRouter, Route, RouteSectionProps } from "@solidjs/router";
 import "./index.css";
 
 import index from "./routes/index";
-const activies = lazy(() => import("./routes/activities"));
+const activities = lazy(() => import("./routes/activities"));
 
 import Background from "./components/Background";
 import GithubRibbon from "./components/GithubRibbon";
@@ -22,7 +22,7 @@ render(
   () => (
     <HashRouter root={App}>
       <Route path="/" component={index} />
-      <Route path="/activities" component={activies} />
+      <Route path="/activities" component={activities} preload={activities} />
     </HashRouter>
   ),
   root!,
