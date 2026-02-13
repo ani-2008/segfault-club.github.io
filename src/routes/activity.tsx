@@ -1,5 +1,5 @@
 import { A, useParams } from "@solidjs/router";
-import { createResource, Show, Suspense } from "solid-js";
+import { createResource, Show, Suspense, createEffect } from "solid-js";
 import rehypeStringify from "rehype-stringify";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
@@ -21,6 +21,34 @@ const fetchChallenge = async (id: string) => {
 export default function activity() {
   const params = useParams();
   const [content] = createResource(() => params.id, fetchChallenge);
+
+  createEffect(() => {
+    document.title = params.id || "Activity";
+  });
+
+  let giscusContainer: HTMLDivElement | undefined;
+
+  createEffect(() => {
+    if (content() && giscusContainer) {
+      giscusContainer.innerHTML = "";
+      const script = document.createElement("script");
+      script.src = "https://giscus.app/client.js";
+      script.setAttribute("data-repo", "Segfault-Club/segfault-club.github.io");
+      script.setAttribute("data-repo-id", "R_kgDOPohNFw");
+      script.setAttribute("data-category", "General");
+      script.setAttribute("data-category-id", "DIC_kwDOPohNF84C2X_o");
+      script.setAttribute("data-mapping", "title");
+      script.setAttribute("data-strict", "1");
+      script.setAttribute("data-reactions-enabled", "1");
+      script.setAttribute("data-emit-metadata", "0");
+      script.setAttribute("data-input-position", "bottom");
+      script.setAttribute("data-theme", "dark");
+      script.setAttribute("data-lang", "en");
+      script.crossOrigin = "anonymous";
+      script.async = true;
+      giscusContainer.appendChild(script);
+    }
+  });
 
   return (
     <>
@@ -82,6 +110,8 @@ export default function activity() {
                   .toString()}
               />
             </article>
+
+            <div class="giscus mx-auto max-w-4xl mb-10" ref={giscusContainer}></div>
           </Show>
         </Suspense>
       </main>
