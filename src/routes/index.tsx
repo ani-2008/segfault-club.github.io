@@ -81,6 +81,21 @@ export default function index() {
               githubUrl="https://github.com/infiknighte"
             />
           </li>
+          <li>
+            <User
+              username="AshyPingu"
+              avatarUrl="https://codeberg.org/avatars/34304f24b374b632b8f47d7eac10524a55bc00bf8e9060b3466cfda26fa54310?size=512"
+              githubUrl="https://codeberg.org/AshyPinguin"
+              // githubUrl="https://github.com/PinguinLars"
+            />
+          </li>
+          <li>
+            <User
+              username="bitabyte"
+              avatarUrl="https://avatars.githubusercontent.com/u/95073991"
+              githubUrl="https://github.com/ani-2008"
+            />
+          </li>
         </ul>
       </section>
     </>
