@@ -51,9 +51,8 @@ export default function activities() {
             <For each={challenges()}>
               {(challenge) => (
                 <li class="group relative mx-auto max-w-4xl rounded border border-slate-600 bg-slate-800/80 p-6 text-slate-200 shadow-2xl backdrop-blur-sm hover:bg-slate-700/80">
-                  <a
-                    href={`https://github.com/Segfault-Club/Activities/blob/main/${challenge.dir}/instructions.md`}
-                    target="_blank"
+                  <A
+                    href={`/activity/${challenge.dir}`}
                   >
                     <div class="absolute top-3 right-3 h-6 w-6">
                       <svg viewBox="0 0 24 24" fill="none">
@@ -80,7 +79,7 @@ export default function activities() {
                         .processSync(challenge.description)
                         .toString()}
                     />
-                  </a>
+                  </A>
 
                   <div class="flex flex-wrap items-center gap-x-5 gap-y-1 text-sm text-slate-400">
                     🗓️ {challenge.date}
