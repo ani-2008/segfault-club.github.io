@@ -1,4 +1,8 @@
 import { A } from "@solidjs/router";
+import rehypeStringify from "rehype-stringify";
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
+import { unified } from "unified";
 import { createResource, For, Suspense } from "solid-js";
 
 interface Challenge {
@@ -62,12 +66,20 @@ export default function activities() {
                       </svg>
                     </div>
                     <h2 class="text-2xl font-semibold">
-                      <span class="text-blue-300">#{}</span>{" "}
+                      <span class="text-blue-300">#{ }</span>{" "}
                       <span class="decoration-2 underline-offset-4 group-hover:underline">
                         {challenge.heading}
                       </span>
                     </h2>
-                    <p class="my-3">{challenge.description}</p>
+                    <div
+                      class="my-3 markdown-content"
+                      innerHTML={unified()
+                        .use(remarkParse)
+                        .use(remarkRehype)
+                        .use(rehypeStringify)
+                        .processSync(challenge.description)
+                        .toString()}
+                    />
                   </a>
 
                   <div class="flex flex-wrap items-center gap-x-5 gap-y-1 text-sm text-slate-400">

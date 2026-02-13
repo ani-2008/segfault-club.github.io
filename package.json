@@ -25,6 +25,10 @@
   },
   "dependencies": {
     "@solidjs/router": "^0.15.4",
-    "solid-js": "^1.9.5"
+    "rehype-stringify": "^10.0.1",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.2",
+    "solid-js": "^1.9.5",
+    "unified": "^11.0.5"
   }
 }
