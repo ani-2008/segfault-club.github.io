@@ -4,7 +4,7 @@ import "./index.css";
 
 import index from "./routes/index";
 const activities = lazy(() => import("./routes/activities"));
-import PageNotFound from "./routes/pageNotFound";
+import pageNotFound from "./routes/pageNotFound";
 
 import Background from "./components/Background";
 import GithubRibbon from "./components/GithubRibbon";

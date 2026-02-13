@@ -1,18 +1,17 @@
 import { A } from "@solidjs/router";
 
-
-export default function PageNotFound() {
+export default function pageNotFound() {
   return (
     <>
       <section class="flex h-[80vh] snap-start items-center px-[8%] font-mono text-white">
         <main class="space-y-10">
-          <div class="flex-wrap static flex gap-4">
+          <div class="static flex flex-wrap gap-4">
             <h1 class="fade-down absolute bottom-130 left-130 text-6xl tracking-tight text-violet-50 md:text-7xl">
               404 :({" "}
             </h1>
             <h2 class="fade-down text-4xl tracking-tight text-violet-50 md:text-5xl">
-              <span class="text-red-400">SIGSEGV</span> :Touched inaccessible URL
-              space
+              <span class="text-red-400">SIGSEGV</span> :Touched inaccessible
+              URL space
             </h2>
           </div>
           <div class="static flex flex-wrap gap-4">
