@@ -4,6 +4,7 @@ import rehypeStringify from "rehype-stringify";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import { unified } from "unified";
+import remarkGithubLinks from "../lib/remarkGithubLinks";
 
 const fetchChallenge = async (id: string) => {
   try {
@@ -99,11 +100,13 @@ export default function activity() {
                   />
                 </svg>
               </a>
-              {/* TODO: handle relative links */}
               <div
                 class="markdown-content"
                 innerHTML={unified()
                   .use(remarkParse)
+                  .use(remarkGithubLinks, {
+                    baseGithubUrl: `https://github.com/Segfault-Club/Activities/blob/main/${params.id}`,
+                  })
                   .use(remarkRehype)
                   .use(rehypeStringify)
                   .processSync(content() || "")
