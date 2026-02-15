@@ -74,8 +74,7 @@ export default function activities() {
                       innerHTML={unified()
                         .use(remarkParse)
                         .use(remarkGithubLinks, {
-                          baseGithubUrl:
-                            "https://github.com/Segfault-Club/Activities/blob/main",
+                          baseGithubUrl: `https://github.com/Segfault-Club/Activities/blob/main/${challenge.dir}`,
                         })
                         .use(remarkRehype)
                         .use(rehypeStringify)
