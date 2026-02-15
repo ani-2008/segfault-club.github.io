@@ -4,6 +4,7 @@ import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import { unified } from "unified";
 import { createResource, For, Suspense } from "solid-js";
+import remarkGithubLinks from "../lib/remarkGithubLinks";
 
 interface Challenge {
   dir: string;
@@ -51,9 +52,7 @@ export default function activities() {
             <For each={challenges()}>
               {(challenge) => (
                 <li class="group relative mx-auto max-w-4xl rounded border border-slate-600 bg-slate-800/80 p-6 text-slate-200 shadow-2xl backdrop-blur-sm hover:bg-slate-700/80">
-                  <A
-                    href={`/activity/${challenge.dir}`}
-                  >
+                  <A href={`/activity/${challenge.dir}`}>
                     <div class="absolute top-3 right-3 h-6 w-6">
                       <svg viewBox="0 0 24 24" fill="none">
                         <path
@@ -65,15 +64,18 @@ export default function activities() {
                       </svg>
                     </div>
                     <h2 class="text-2xl font-semibold">
-                      <span class="text-blue-300">#{ }</span>{" "}
+                      <span class="text-blue-300">#{}</span>{" "}
                       <span class="decoration-2 underline-offset-4 group-hover:underline">
                         {challenge.heading}
                       </span>
                     </h2>
                     <div
-                      class="my-3 markdown-content"
+                      class="markdown-content my-3"
                       innerHTML={unified()
                         .use(remarkParse)
+                        .use(remarkGithubLinks, {
+                          baseGithubUrl: `https://github.com/Segfault-Club/Activities/blob/main/${challenge.dir}`,
+                        })
                         .use(remarkRehype)
                         .use(rehypeStringify)
                         .processSync(challenge.description)

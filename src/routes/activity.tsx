@@ -4,6 +4,7 @@ import rehypeStringify from "rehype-stringify";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import { unified } from "unified";
+import remarkGithubLinks from "../lib/remarkGithubLinks";
 
 const fetchChallenge = async (id: string) => {
   try {
@@ -81,7 +82,7 @@ export default function activity() {
               </div>
             }
           >
-            <article class="relative fade-down mx-auto max-w-4xl mt-20 mb-10 w-11/12 rounded border border-slate-600 bg-slate-800/80 p-6 text-slate-200 shadow-2xl backdrop-blur-sm">
+            <article class="fade-down relative mx-auto mt-20 mb-10 w-11/12 max-w-4xl rounded border border-slate-600 bg-slate-800/80 p-6 text-slate-200 shadow-2xl backdrop-blur-sm">
               <a
                 href={`https://github.com/Segfault-Club/Activities/blob/main/${params.id}/instructions.md`}
                 target="_blank"
@@ -99,11 +100,13 @@ export default function activity() {
                   />
                 </svg>
               </a>
-              {/* TODO: handle relative links */}
               <div
                 class="markdown-content"
                 innerHTML={unified()
                   .use(remarkParse)
+                  .use(remarkGithubLinks, {
+                    baseGithubUrl: `https://github.com/Segfault-Club/Activities/blob/main/${params.id}`,
+                  })
                   .use(remarkRehype)
                   .use(rehypeStringify)
                   .processSync(content() || "")
@@ -111,7 +114,10 @@ export default function activity() {
               />
             </article>
 
-            <div class="giscus mx-auto max-w-4xl mb-10" ref={giscusContainer}></div>
+            <div
+              class="giscus mx-auto mb-10 max-w-4xl"
+              ref={giscusContainer}
+            ></div>
           </Show>
         </Suspense>
       </main>
